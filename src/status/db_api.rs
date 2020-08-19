@@ -1,4 +1,4 @@
-#[derive(Serialize, Deserialize, Eq, PartialEq, Copy, Clone)]
+#[derive(Serialize, Deserialize, Eq, PartialEq, Copy, Clone, Debug)]
 pub enum _DbAPIStatus {
     Ok,
     ConnectRefused,
@@ -6,7 +6,7 @@ pub enum _DbAPIStatus {
     DbError,
 }
 
-#[derive(Serialize, Deserialize, Eq, PartialEq)]
+#[derive(Serialize, Deserialize, Eq, PartialEq, Debug)]
 pub struct DbAPIStatus {
     status_code: u8,
     status: _DbAPIStatus,

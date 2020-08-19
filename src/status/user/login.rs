@@ -1,7 +1,7 @@
 use crate::status::db_api::{DbAPIStatus, _DbAPIStatus};
 use crate::my_trait::StatusTrait;
 
-#[derive(Serialize, Deserialize, Default)]
+#[derive(Serialize, Deserialize, Default, Debug)]
 pub struct Data { user_name: String, }
 
 impl Data {
@@ -10,14 +10,14 @@ impl Data {
     }
 }
 
-#[derive(Serialize, Deserialize, Clone, Copy)]
+#[derive(Serialize, Deserialize, Clone, Copy, Debug)]
 pub enum _LoginStatus {
     LoginSuccessfully,
     UserNameOrPasswordWrongOrNoActive,
     DbAPIError,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct LoginStatus {
     status_code: u8,
     status: _LoginStatus,
@@ -42,6 +42,10 @@ impl LoginStatus {
             data,
             ..self
         }
+    }
+
+    pub fn get_user_name(&self) -> String {
+        self.data.user_name.clone()
     }
 }
 

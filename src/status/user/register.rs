@@ -1,14 +1,14 @@
 use crate::status::db_api::{DbAPIStatus, _DbAPIStatus};
 use crate::my_trait::StatusTrait;
 
-#[derive(Serialize, Deserialize, Eq, PartialEq)]
+#[derive(Serialize, Deserialize, Eq, PartialEq, Debug)]
 pub struct RegisterStatus {
     status_code: u8,
     status: _RegisterStatus,
     db_api_status: DbAPIStatus,
 }
 
-#[derive(Serialize, Deserialize, Clone, Copy, Eq, PartialEq)]
+#[derive(Serialize, Deserialize, Clone, Copy, Eq, PartialEq, Debug)]
 pub enum _RegisterStatus {
     RegisterSuccessfully,
     UserNameHasExisted,

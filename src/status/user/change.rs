@@ -1,7 +1,7 @@
 use crate::status::db_api::{DbAPIStatus, _DbAPIStatus};
 use crate::my_trait::StatusTrait;
 
-#[derive(Serialize, Deserialize, Clone, Copy)]
+#[derive(Serialize, Deserialize, Clone, Copy, Debug)]
 pub enum _ChangeStatus {
     ChangeSuccessfully,
     PasswordTooShort,
@@ -9,7 +9,7 @@ pub enum _ChangeStatus {
     DbAPIError,
 }
 
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug)]
 pub struct ChangeStatus {
     status_code: u8,
     status: _ChangeStatus,
